@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load your data
+data = pd.read_csv("C:/Users/user/Downloads/data.csv")  # Replace "data.csv" with your dataset
+
+# Define bin edges (intervals)
+bin_edges = [0, 25, 50, 75, 100]  # Adjust the bin edges as needed
+
+# Define bin labels (optional)
+bin_labels = ['Low', 'Medium-Low', 'Medium-High', 'High']
+
+# Perform discretization by binning
+data['discretized_column'] = pd.cut(data['Value'], bins=bin_edges, labels=bin_labels, include_lowest=True)
+
+# Display the resulting DataFrame
+print(data)
+
+# Visualize the distribution of discretized values
+plt.hist(data['discretized_column'], bins=bin_labels, edgecolor='k', align='left')
+plt.xlabel('Bins')
+plt.ylabel('Frequency')
+plt.title('Discretized Data Distribution')
+plt.xticks(bin_labels, rotation=45)
+plt.show()
