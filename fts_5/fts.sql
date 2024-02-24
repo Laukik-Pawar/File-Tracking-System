@@ -1,11 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: Dec 22, 2018 at 06:07 PM
--- Server version: 5.7.19-log
--- PHP Version: 7.2.9
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,8 +37,7 @@ CREATE TABLE IF NOT EXISTS `files` (
 ) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `files`
---
+
 
 
 
@@ -114,23 +106,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT '0',
+  `usertype` int(11),
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `users`;
 
 
--- Create the 'users' table
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
-  `usertype` int(11), -- Add a foreign key reference to 'usertype'
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`usertype`) REFERENCES `usertype`(`id`) -- Define the foreign key relationship
-);
 
 
 ALTER TABLE movements
@@ -144,9 +126,9 @@ ADD count VARCHAR(255) AFTER updated_at;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-INSERT INTO `usertype`(`id`, `usertype`) VALUES ('1','Principal');
-INSERT INTO `usertype`(`id`, `usertype`) VALUES ('2','Staff');
-INSERT INTO `usertype`(`id`, `usertype`) VALUES ('3','Admin');
-INSERT INTO `usertype`(`id`, `usertype`) VALUES ('4','Student');
+-- INSERT INTO `usertype`(`id`, `usertype`) VALUES ('1','Principal');
+-- INSERT INTO `usertype`(`id`, `usertype`) VALUES ('2','Staff');
+-- INSERT INTO `usertype`(`id`, `usertype`) VALUES ('3','Admin');
+-- INSERT INTO `usertype`(`id`, `usertype`) VALUES ('4','Student');
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `is_admin`, `usertype`) VALUES (, 'admin', 'admin@gmail.com','admin' ,'1', '3');
