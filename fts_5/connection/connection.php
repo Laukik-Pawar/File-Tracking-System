@@ -6,7 +6,7 @@ $username = "root";
 $database = "fts_5";
 
 
-$connection = mysqli_connect($host, $username, '', $database,3307);
+$connection = mysqli_connect($host, $username, '', $database,3306);
 
 
 //here if $connection have a value null, it will imply that our system is not connected to the database "myphpnotes";
