@@ -125,7 +125,7 @@ if (!isset($_SESSION['user'])) {
             $host = "localhost";
             $username = "root";
             $dbname = "fts_5";
-            $port = 3307; // Use the appropriate port
+            $port = 3306; // Use the appropriate port
 
             $conn = new mysqli($host, $username, '', $dbname, $port);
 
